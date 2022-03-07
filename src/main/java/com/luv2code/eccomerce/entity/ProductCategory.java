@@ -2,6 +2,7 @@ package com.luv2code.eccomerce.entity;
 
 import java.util.Set;
 
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,20 +16,20 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name="product_category")
+@Table(name = "product_category")
 
 @Getter
 @Setter
 public class ProductCategory {
-	
-	@Id 
+
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private Long id; 
-	
+	private Long id;
+
 	@Column(name = "category_name")
 	private String categoryName;
-	
+
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
 	private Set<Product> products;
 
